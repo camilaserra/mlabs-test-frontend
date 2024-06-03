@@ -48,6 +48,10 @@
       display: flex;
       gap: 10px;
 
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+
       a {
         font-weight: 400;
         color: $gray-100;

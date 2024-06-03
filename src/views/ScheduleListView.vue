@@ -81,22 +81,24 @@
                 />
               </div>
             </td>
-            <td class="schedule-table__cell schedule-table__cell-status">
-              <div
-                class="badge"
-                :style="{
-                  backgroundColor: status?.data.find(
-                    (statusItem) => statusItem.id === schedule.status_key
-                  ).color,
-                }"
-              ></div>
-              <p>
-                {{
-                  status?.data.find(
-                    (statusItem) => statusItem.id === schedule.status_key
-                  ).name
-                }}
-              </p>
+            <td class="schedule-table__cell schedule-table__cell-wrapper">
+              <div class="schedule-table__cell-status">
+                <div
+                  class="badge"
+                  :style="{
+                    backgroundColor: status?.data.find(
+                      (statusItem) => statusItem.id === schedule.status_key
+                    ).color,
+                  }"
+                ></div>
+                <p>
+                  {{
+                    status?.data.find(
+                      (statusItem) => statusItem.id === schedule.status_key
+                    ).name
+                  }}
+                </p>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -108,7 +110,10 @@
 <style lang="scss" scoped>
 .schedule-list__wrapper {
   padding-top: 140px;
-  padding-bottom: 200px;
+
+  @media (max-width: 767.98px) {
+    padding-top: 50px;
+  }
 
   .schedule-list__header {
     padding: 50px 0px 50px 0px;
@@ -118,7 +123,7 @@
     flex-wrap: wrap;
     gap: 20px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767.98px) {
       flex-direction: column;
       gap: 10px;
     }
@@ -182,22 +187,6 @@
       font-size: 16px;
       color: $gray-100;
       font-weight: 500;
-    }
-
-    tbody {
-      tr {
-        &:nth-child(odd) {
-          .schedule-table__cell {
-            background-color: $white-100;
-          }
-        }
-
-        &:nth-child(even) {
-          .schedule-table__cell {
-            background-color: $white-300;
-          }
-        }
-      }
     }
 
     &__cell {
@@ -274,15 +263,33 @@
         }
       }
 
-      &-status {
-        display: flex;
-        align-items: center;
+      &-wrapper {
+        .schedule-table__cell-status {
+          display: flex;
+          align-items: center;
 
-        .badge {
-          width: 1rem;
-          height: 1rem;
-          border-radius: 50%;
-          margin-right: 0.5rem;
+          .badge {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          .schedule-table__cell {
+            background-color: $white-100;
+          }
+        }
+
+        &:nth-child(even) {
+          .schedule-table__cell {
+            background-color: $white-300;
+          }
         }
       }
     }
@@ -299,21 +306,24 @@
       }
 
       &__row {
-        margin-bottom: 1rem;
         border-bottom: none;
       }
 
       &__cell {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        padding: 0.5rem 0;
+        padding: 5px;
 
-        &::before {
-          content: attr(data-label);
-          flex: 0 0 50%;
-          max-width: 50%;
-          font-weight: bold;
+        &-social-networks {
+          padding: 10px 0;
+        }
+
+        &-image {
+          img {
+            width: 100px;
+            height: 100px;
+          }
         }
       }
     }
