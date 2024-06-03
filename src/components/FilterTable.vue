@@ -22,7 +22,7 @@
   display: flex;
   align-items: flex-center;
   background-color: $white-100;
-  border: 1px solid $gray-200;
+  border: 1px solid $gray-600;
   border-radius: 4px;
 
   .filter-header {
@@ -35,7 +35,7 @@
     border: none;
     border-radius: 4px;
     font-size: 16px;
-    background-color: white;
+    background-color: $white-100;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -48,7 +48,7 @@
 
   select:focus {
     outline: none;
-    color: #333;
+    color: $gray-300;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="schedule-list__wrapper">
     <div class="main_container">
       <div class="schedule-list__header">
-        <p class="schedule-list__title">Listagem de Agendamentos</p>
+        <h1 class="schedule-list__title">Listagem de Agendamentos</h1>
 
         <FilterTable
           v-if="schedules"
