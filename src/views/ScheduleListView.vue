@@ -3,7 +3,9 @@
     <div class="main_container">
       <div class="schedule-list__header">
         <p class="schedule-list__title">Listagem de Agendamentos</p>
+
         <FilterTable
+          v-if="schedules"
           :schedules="schedules?.data"
           :statusData="status?.data"
           @update-schedules="updateSchedules"
