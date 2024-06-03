@@ -120,6 +120,10 @@
     grid-template-columns: repeat(2, 2fr);
     gap: 20px;
 
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     .schedule-collumn {
       .schedule-row {
         display: grid;
