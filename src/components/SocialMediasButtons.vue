@@ -1,7 +1,7 @@
 <template>
   <div class="social-media-wrapper">
     <div class="social-media-header">
-      <h2 class="social-media-title">Redes Sociais</h2>
+      <h1 class="social-media-title">Redes Sociais</h1>
     </div>
     <div class="social-media-content">
       <button
@@ -50,43 +50,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      enabledSocials: [],
-    };
-  },
-  methods: {
-    toggleSocial(social) {
-      const index = this.enabledSocials.indexOf(social);
-      if (index !== -1) {
-        this.enabledSocials.splice(index, 1);
-      } else {
-        this.enabledSocials.push(social);
-      }
-      this.$emit("socials", this.enabledSocials);
-    },
-    isEnabled(social) {
-      return this.enabledSocials.includes(social);
-    },
-    isClickable(social) {
-      return social === "instagram" || social === "linkedin";
-    },
-  },
-  emits: ["socials"],
-};
-</script>
-
 <style lang="scss" scoped>
 .social-media-wrapper {
   background-color: $white-100;
-  border: 1px solid $gray-200;
+  border: 1px solid $gray-600;
   border-radius: 4px;
 
   .social-media-header {
     padding: 5px 10px;
-    border-bottom: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-600;
 
     .social-media-title {
       font-weight: 500;
@@ -132,3 +104,31 @@ export default {
   }
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      enabledSocials: [],
+    };
+  },
+  methods: {
+    toggleSocial(social) {
+      const index = this.enabledSocials.indexOf(social);
+      if (index !== -1) {
+        this.enabledSocials.splice(index, 1);
+      } else {
+        this.enabledSocials.push(social);
+      }
+      this.$emit("socials", this.enabledSocials);
+    },
+    isEnabled(social) {
+      return this.enabledSocials.includes(social);
+    },
+    isClickable(social) {
+      return social === "instagram" || social === "linkedin";
+    },
+  },
+  emits: ["socials"],
+};
+</script>
