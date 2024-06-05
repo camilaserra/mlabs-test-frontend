@@ -2,9 +2,8 @@
   <div class="modal-wrapper" v-if="open">
     <div @click="close" class="modal-overlay"></div>
     <div class="modal-content">
-      <p>{{ data }}</p>
-
-      <img :src="getImageSrc" alt="" />
+      <img src="/img/elements/success.png" alt="Image success" />
+      <p>Agendado com sucesso!</p>
     </div>
   </div>
 </template>
@@ -22,7 +21,7 @@ div {
     z-index: 1000;
 
     .modal-content {
-      background-color: transparent;
+      background-color: $orange-100;
       z-index: 1;
       width: 800px;
       height: 800px;
@@ -49,6 +48,7 @@ div {
 <script>
 export default {
   name: "ModalPreview",
+  components: {},
   data() {
     return {};
   },
@@ -60,32 +60,11 @@ export default {
     },
     data: {
       type: Object,
-      required: true,
     },
   },
   methods: {
     close() {
       this.$emit("close", false);
-    },
-
-    getImageSrc() {
-      if (!this.data || !this.data.media) {
-        return ""; // return empty string if no media data
-      }
-
-      const reader = new FileReader();
-
-      // Define a promise to handle the asynchronous reading of the blob
-      const readBlob = new Promise((resolve, reject) => {
-        reader.onload = () => {
-          resolve(reader.result);
-        };
-        reader.onerror = reject;
-      });
-
-      reader.readAsDataURL(this.data.media); // Convert blob to data URL
-
-      return readBlob;
     },
   },
 };
