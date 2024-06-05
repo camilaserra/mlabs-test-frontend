@@ -64,7 +64,7 @@
             </td>
             <td class="schedule-table__cell">
               <div class="schedule-table__cell-image">
-                <img :src="schedule.media" :alt="schedule.media.alt" />
+                <img :src="schedule.media" alt="Imagem preview" />
               </div>
             </td>
             <td class="schedule-table__cell">
@@ -80,7 +80,7 @@
                 <a href="#" @click.prevent="openModal(schedule.id)">Preview</a>
                 <ModalPreview
                   :open="isModalOpen"
-                  :data="{ id: currentSchedule }"
+                  :data="currentSchedule"
                   @close="isModalOpen = false"
                 />
               </div>
@@ -321,6 +321,7 @@
           align-items: center;
 
           .badge {
+            flex-shrink: 0;
             width: 1rem;
             height: 1rem;
             border-radius: 50%;
@@ -396,7 +397,7 @@ export default {
   data() {
     return {
       isModalOpen: false,
-      currentSchedule: null,
+      currentSchedule: {},
       schedules: null,
       filteredSchedules: null,
       status: null,
@@ -405,15 +406,19 @@ export default {
   },
   methods: {
     openModal(schedule) {
-      this.currentSchedule = schedule;
+      this.currentSchedule = this.schedules.data.find(
+        (item) => item.id === schedule
+      );
       this.isModalOpen = true;
     },
+
     formatDate(dateString) {
       if (!dateString) return "";
       const date = new Date(dateString);
       if (isNaN(date.getTime())) return "";
       return format(date, "dd/MM/yyyy 'às' HH:mm'h'");
     },
+
     updateSchedules(schedules) {
       this.filteredSchedules = schedules;
     },
