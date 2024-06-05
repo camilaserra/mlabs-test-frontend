@@ -498,8 +498,6 @@ export default {
 
     toggleCard(socialList) {
       this.enabledSocials = socialList;
-
-      console.log({ enabledSocials: this.enabledSocials, socialList });
     },
 
     isCardEnabled(socialName) {
