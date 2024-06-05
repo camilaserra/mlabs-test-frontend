@@ -34,7 +34,39 @@
               <ImagePreview v-if="!anyCardEnabled" />
 
               <div class="schedule-cards-wrapper">
-                <div class="schedules-card-instagram" v-if="isCardEnabled(1)">
+                <div class="schedules-card-linkedin" v-if="isCardEnabled(1)">
+                  <div class="linkedin__header">
+                    <div class="linkedin-icon">
+                      <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="linkedin-name">
+                      <p>Anselmo Carlos</p>
+                      <p class="instagram-date">{{ formattedDate }}</p>
+                    </div>
+                  </div>
+
+                  <div class="linkedin__description">
+                    <p>{{ textAreaValue }}</p>
+                  </div>
+
+                  <div class="linkedin__image">
+                    <img
+                      v-if="uploadedImage"
+                      :src="uploadedImage"
+                      alt="Imagem Selecionada"
+                    />
+                  </div>
+                  <div class="linkedin__comments">
+                    <p>5 comentarios</p>
+                  </div>
+                  <div class="linkedin__favorites">
+                    <i class="far fa-thumbs-up"></i>
+                    <i class="far fa-comment-alt"></i>
+                    <i class="far fa-share-square"></i>
+                  </div>
+                </div>
+
+                <div class="schedules-card-instagram" v-if="isCardEnabled(2)">
                   <div class="instagram__header">
                     <div class="instagran-icon">
                       <i class="fab fa-instagram"></i>
@@ -59,38 +91,6 @@
                   </div>
                   <div class="instagram__description">
                     <p>{{ textAreaValue }}</p>
-                  </div>
-                </div>
-
-                <div class="schedules-card-linkedin" v-if="isCardEnabled(2)">
-                  <div class="linkedin__header">
-                    <div class="linkedin-icon">
-                      <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <p>Anselmo Carlos</p>
-                    <p>{{ formattedDate }}</p>
-                  </div>
-
-                  <div class="linkedin__description">
-                    <p>{{ textAreaValue }}</p>
-                  </div>
-
-                  <div class="linkedin__image">
-                    <img
-                      v-if="uploadedImage"
-                      :src="uploadedImage"
-                      alt="Imagem Selecionada"
-                    />
-                  </div>
-                  <div>
-                    <p>5 comentarios</p>
-                  </div>
-                  <div>
-                    <div>
-                      <i class="far fa-thumbs-up"></i>
-                      <i class="far fa-comment-alt"></i>
-                    </div>
-                    <i class="far fa-share-square"></i>
                   </div>
                 </div>
               </div>
@@ -126,6 +126,10 @@
   background-color: $white-200;
   padding-top: 140px;
   padding-bottom: 100px;
+
+  @media screen and (max-width: 768px) {
+    padding-bottom: 150px;
+  }
 
   .schedule-grid {
     display: grid;
@@ -250,12 +254,14 @@
               p {
                 font-weight: 500;
                 color: $black-100;
+                margin: 0;
               }
             }
 
             .instagram__image {
               width: 100%;
               aspect-ratio: 1/1;
+              background-color: #00000011;
 
               img {
                 width: 100%;
@@ -302,11 +308,10 @@
             height: 100%;
 
             .linkedin__header {
-              padding: 10px;
+              padding: 10px 10px 0 10px;
               display: flex;
               gap: 10px;
               align-items: center;
-              border-bottom: 1px solid $gray-600;
 
               .linkedin-icon {
                 width: 40px;
@@ -315,21 +320,36 @@
                 justify-content: center;
                 align-items: center;
                 border-radius: 50%;
-                background-image: linear-gradient(180deg, #ef2ea2, #e0a22b);
+                background-color: $blue-100;
                 i {
                   font-size: 20px;
                   color: $white-100;
                 }
               }
-              p {
-                font-weight: 500;
-                color: $black-100;
+
+              .linkedin-name {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                p {
+                  font-weight: 500;
+                  color: $black-100;
+                  margin: 0;
+                }
+                p.instagram-date {
+                  font-size: 12px;
+                  color: $gray-300;
+                  margin: 0;
+                }
               }
             }
 
             .linkedin__description {
               p {
                 margin: 0;
+                text-align: start;
+                padding: 10px;
+                font-size: 14px;
               }
             }
 
@@ -345,17 +365,21 @@
               }
             }
 
-            .instagram__favorites {
-              padding: 5px 10px 0 10px;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              gap: 10px;
-
-              div {
-                display: flex;
-                gap: 10px;
+            .linkedin__comments {
+              padding: 10px;
+              p {
+                margin: 0;
+                font-size: 14px;
+                color: $gray-100;
+                text-align: start;
               }
+            }
+
+            .linkedin__favorites {
+              padding: 0 10px 10px 10px;
+              display: flex;
+              align-items: flex-start;
+              gap: 10px;
 
               i {
                 font-size: 20px;
@@ -401,7 +425,7 @@
       border: 1px solid $white-100;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
       transition: background-color 0.3s;
       &:hover {
         background-color: $white-100;
@@ -416,7 +440,7 @@
       border: 1px solid $blue-200;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
       transition: background-color 0.3s;
       &:hover {
         background-color: $blue-200;
@@ -431,7 +455,7 @@
       border: 1px solid $blue-200;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 14px;
       transition: background-color 0.3s;
       &:hover {
         background-color: $white-100;
@@ -591,17 +615,8 @@ export default {
     formattedDate() {
       return this.selectedDate
         ? moment(this.selectedDate).format("DD [de] MMMM")
-        : "selecione uma data";
+        : "";
     },
-
-    /* toISODateTime() {
-      return this.selectedDate && this.timeReceived
-        ? moment(
-            `${this.selectedDate} ${this.timeReceived}`,
-            "YYYY-MM-DD HH:mm"
-          ).toISOString()
-        : null;
-    }, */
 
     toISODateTime() {
       if (this.selectedDate && this.timeReceived) {
