@@ -14,7 +14,7 @@
           </div>
           <div class="linha">
             <div class="schedule-row-2">
-              <TextArea v-model="text" />
+              <TextArea @textAreaValue="handleTextAreaValue" />
               <ImageUpload @image-selected="handleImageSelected" />
               {{ text }}
             </div>

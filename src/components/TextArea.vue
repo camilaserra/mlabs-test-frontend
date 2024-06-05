@@ -6,6 +6,7 @@
     <div class="text-post-emoji-textbox">
       <textarea
         v-model="text"
+        @keyup="emitValue"
         rows="4"
         placeholder="Aqui vai o texto descritivo"
       ></textarea>
@@ -99,6 +100,10 @@
 
 <script>
 export default {
+  name: "TextArea",
+
+  emits: ["textAreaValue"],
+
   data() {
     return {
       showEmojiPicker: false,
@@ -113,6 +118,11 @@ export default {
     addEmoji(emoji) {
       this.text = this.text ? this.text + emoji : emoji;
       this.showEmojiPicker = false;
+      this.emitValue();
+    },
+
+    emitValue() {
+      this.$emit("textAreaValue", this.text);
     },
   },
   props: {
