@@ -1,50 +1,17 @@
 <template>
-  <div class="social-media-wrapper">
+  <div class="social-media-wrapper" v-if="socials.length">
     <div class="social-media-header">
       <h1 class="social-media-title">Redes Sociais</h1>
     </div>
     <div class="social-media-content">
       <button
-        @click="toggleSocial('instagram')"
-        :class="{ active: isEnabled('instagram') }"
-        :disabled="!isClickable('instagram')"
+        v-for="social in socials"
+        :key="social.id"
+        @click="toggleSocial(social.id)"
+        :class="{ active: isEnabled(social.id) }"
+        :disabled="social.status === 'disabled'"
       >
-        <i class="fab fa-instagram"></i>
-      </button>
-      <button
-        @click="toggleSocial('linkedin')"
-        :class="{ active: isEnabled('linkedin') }"
-        :disabled="!isClickable('linkedin')"
-      >
-        <i class="fab fa-linkedin-in"></i>
-      </button>
-      <button
-        @click="toggleSocial('youtube')"
-        :class="{ active: isEnabled('youtube') }"
-        :disabled="true"
-      >
-        <i class="fab fa-youtube"></i>
-      </button>
-      <button
-        @click="toggleSocial('pinterest')"
-        :class="{ active: isEnabled('pinterest') }"
-        :disabled="true"
-      >
-        <i class="fab fa-pinterest"></i>
-      </button>
-      <button
-        @click="toggleSocial('x')"
-        :class="{ active: isEnabled('x') }"
-        :disabled="true"
-      >
-        <i class="fab fa-pinterest"></i>
-      </button>
-      <button
-        @click="toggleSocial('facebook')"
-        :class="{ active: isEnabled('facebook') }"
-        :disabled="true"
-      >
-        <i class="fab fa-facebook-f"></i>
+        <i :class="`fab fa-${social.icon}`"></i>
       </button>
     </div>
   </div>
@@ -70,9 +37,10 @@
   }
 
   .social-media-content {
-    padding: 5px 10px;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 
     button {
       width: 33px;
@@ -106,27 +74,36 @@
 </style>
 
 <script>
+import { fetchSocials } from "@/services/fetchSocials";
 export default {
   data() {
     return {
+      socials: [],
       enabledSocials: [],
     };
   },
+  mounted() {
+    this.fetchSocialsData();
+  },
   methods: {
-    toggleSocial(social) {
-      const index = this.enabledSocials.indexOf(social);
+    async fetchSocialsData() {
+      try {
+        this.socials = await fetchSocials();
+      } catch (error) {
+        console.error("Erro ao buscar dados da API:", error);
+      }
+    },
+    toggleSocial(socialId) {
+      const index = this.enabledSocials.indexOf(socialId);
       if (index !== -1) {
         this.enabledSocials.splice(index, 1);
       } else {
-        this.enabledSocials.push(social);
+        this.enabledSocials.push(socialId);
       }
       this.$emit("socials", this.enabledSocials);
     },
-    isEnabled(social) {
-      return this.enabledSocials.includes(social);
-    },
-    isClickable(social) {
-      return social === "instagram" || social === "linkedin";
+    isEnabled(socialId) {
+      return this.enabledSocials.includes(socialId);
     },
   },
   emits: ["socials"],

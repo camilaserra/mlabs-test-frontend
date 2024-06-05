@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 .button-orange {
   background-color: $orange-200;
-  color: white;
+  color: $white-100;
   padding: 10px 20px;
   border: 1px solid $orange-300;
   border-radius: 5px;
