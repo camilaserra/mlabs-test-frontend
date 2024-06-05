@@ -32,7 +32,7 @@ div {
       box-shadow: 0 0 10px rgb(255, 255, 255);
     }
     .modal-overlay {
-      background-color: rgba(33, 24, 24, 0.5);
+      background-color: rgba(33, 24, 24, 0.273);
       position: fixed;
       top: 0;
       left: 0;
