@@ -2,7 +2,6 @@
   <div class="modal-wrapper" v-if="open">
     <div @click="close" class="modal-overlay"></div>
     <div class="modal-content">
-      {{ data }}
       <div class="schedule-cards-wrapper">
         <div
           class="schedules-card-linkedin"
