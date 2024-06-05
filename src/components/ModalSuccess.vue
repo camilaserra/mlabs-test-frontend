@@ -4,7 +4,9 @@
     <div class="modal-content">
       <img src="/img/elements/success.png" alt="Image success" />
       <p>Agendado com sucesso!</p>
-      <button class="button-blue">Ok</button>
+      <a href="/lista-de-agendamentos"
+        ><button class="button-blue">Ok</button></a
+      >
     </div>
   </div>
 </template>
@@ -22,14 +24,16 @@ div {
     z-index: 1000;
 
     .modal-content {
-      background-color: $orange-100;
+      background-color: $white-100;
+      margin: 0 20px;
+      padding: 20px;
       z-index: 1;
-      width: 800px;
-      height: 800px;
+      max-width: 500px;
+      width: 100%;
       display: grid;
       place-items: center;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgb(255, 255, 255);
+      box-shadow: 0 0 10px #0000002e;
 
       .button-blue {
         background-color: $blue-200;

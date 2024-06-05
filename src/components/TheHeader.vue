@@ -33,6 +33,11 @@
   width: -webkit-fill-available;
   padding: 0px 40px;
   background-color: $white-100;
+  z-index: 999;
+
+  @media screen and (max-width: 768px) {
+    padding: 0px 20px;
+  }
 
   .header-content {
     display: flex;
