@@ -53,6 +53,10 @@
                     `fab bg fa-${icon.icon}`,
                     icon.name === 'Instagram' && 'bg-instagram',
                     icon.name === 'Linkedin' && 'bg-linkedin',
+                    icon.name === 'Facebook' && 'bg-facebook',
+                    icon.name === 'Youtube' && 'bg-youtube',
+                    icon.name === 'Pinterest' && 'bg-pinterest',
+                    icon.name === 'Twitter' && 'bg-twitter',
                   ]"
                   aria-hidden="true"
                 ></i>
@@ -212,7 +216,31 @@
             font-size: 1.2rem;
           }
 
+          &-instagram {
+            border: 1px solid $pink-100;
+            background-color: $pink-100;
+            transition: all 0.3s;
+
+            &:hover {
+              color: $orange-400;
+              background-color: $orange-50;
+              border: 1px solid $orange-400;
+            }
+          }
+
           &-linkedin {
+            background-color: $blue-300;
+            border: 1px solid $blue-300;
+            transition: all 0.3s;
+
+            &:hover {
+              color: $orange-400;
+              background-color: $orange-50;
+              border: 1px solid $orange-400;
+            }
+          }
+
+          &-facebook {
             background-color: $blue-100;
             border: 1px solid $blue-100;
             transition: all 0.3s;
@@ -224,9 +252,32 @@
             }
           }
 
-          &-instagram {
-            border: 1px solid $pink-100;
-            background-color: $pink-100;
+          &-youtube {
+            background-color: $red-200;
+            border: 1px solid $red-200;
+            transition: all 0.3s;
+
+            &:hover {
+              color: $orange-400;
+              background-color: $orange-50;
+              border: 1px solid $orange-400;
+            }
+          }
+
+          &-pinterest {
+            background-color: $red-300;
+            border: 1px solid $red-300;
+            transition: all 0.3s;
+
+            &:hover {
+              color: $orange-400;
+              background-color: $orange-50;
+              border: 1px solid $orange-400;
+            }
+          }
+          &-twitter {
+            background-color: $blue-400;
+            border: 1px solid $blue-400;
             transition: all 0.3s;
 
             &:hover {
