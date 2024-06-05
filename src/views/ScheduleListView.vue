@@ -336,8 +336,7 @@
 import ModalPreview from "@/components/ModalPreview.vue";
 import FilterTable from "@/components/FilterTable.vue";
 import { format } from "date-fns";
-import axios from "axios";
-
+import ScheduleService from "@/services/scheduleservice";
 export default {
   components: {
     ModalPreview,
@@ -367,24 +366,45 @@ export default {
     updateSchedules(schedules) {
       this.filteredSchedules = schedules;
     },
+
+    fetchData() {
+      if (localStorage.getItem("schedules") === null) {
+        ScheduleService.fetchAllData()
+          .then(
+            ([responseSchedules, responseStatus, responseSocialNetworks]) => {
+              this.schedules = responseSchedules.data;
+              this.status = responseStatus.data;
+              this.social_networks = responseSocialNetworks.data;
+              this.filteredSchedules = [...this.schedules.data];
+
+              localStorage.setItem(
+                "schedules",
+                JSON.stringify(responseSchedules.data)
+              );
+              localStorage.setItem(
+                "status",
+                JSON.stringify(responseStatus.data)
+              );
+              localStorage.setItem(
+                "social_networks",
+                JSON.stringify(responseSocialNetworks.data)
+              );
+            }
+          )
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      } else {
+        this.schedules = JSON.parse(localStorage.getItem("schedules"));
+        this.status = JSON.parse(localStorage.getItem("status"));
+        this.social_networks = JSON.parse(
+          localStorage.getItem("social_networks")
+        );
+      }
+    },
   },
   mounted() {
-    axios
-      .all([
-        axios.get("/api/schedules.json"),
-        axios.get("/api/schedules-status.json"),
-        axios.get("/api/social-networks.json"),
-      ])
-      .then(
-        axios.spread(
-          (responseSchedules, responseStatus, responseSocialNetworks) => {
-            this.schedules = responseSchedules.data;
-            this.status = responseStatus.data;
-            this.social_networks = responseSocialNetworks.data;
-            this.filteredSchedules = [...this.schedules.data];
-          }
-        )
-      );
+    this.fetchData();
   },
 };
 </script>

@@ -2,7 +2,7 @@
     "data": [
       {
         "id": 1,
-        "social_network_key": [2, 3],
+        "social_network_key": [1, 2],
         "media": "https://images.unsplash.com/photo-1616400619175-5beda3a17896?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "text": "Estudar é muito importante para o desenvolvimento pessoal e profissional. Aprender coisas novas é sempre uma experiência enriquecedora. E você, o que tem estudado ultimamente? 📚📖 #estudo #aprendizado #desenvolvimentopessoal",
         "publication_date": "2024-03-10T03:59:23.922Z",
@@ -10,7 +10,7 @@
       },
       {
         "id": 2,
-        "social_network_key": [3],
+        "social_network_key": [3, 4],
         "media": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "text": "Novos horizontes se abrem quando você se permite conhecer novas culturas. Viajar é uma experiência enriquecedora e transformadora. O que você mais gosta de fazer quando viaja? 🌍✈️ #viagem #cultura #experiência",
         "publication_date": "2024-01-08T05:59:23.922Z",
@@ -18,7 +18,7 @@
       },
       {
         "id": 3,
-        "social_network_key": [2],
+        "social_network_key": [2,5],
         "media": "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "text": "Negocios são feitos por pessoas. E pessoas são movidas por emoções. Aprender a lidar com as emoções é fundamental para o sucesso nos negócios. Como você lida com as suas emoções? 🧠💼 #negócios #emoções #sucesso",
         "publication_date": "2024-04-08T15:59:23.922Z",
@@ -26,7 +26,7 @@
       },
       {
         "id": 4,
-        "social_network_key": [2],
+        "social_network_key": [2, 6],
         "media": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "text": "Tecnologia é uma ferramenta poderosa para a transformação do mundo. A inovação é o motor que impulsiona a evolução da sociedade. Como você acha que a tecnologia pode transformar o mundo? 🌐🚀 #tecnologia #inovação #transformação",
         "publication_date": "2024-04-08T07:59:23.922Z",
