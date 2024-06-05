@@ -46,6 +46,7 @@
 
     textarea {
       width: -webkit-fill-available;
+      font-family: "Poppins", sans-serif;
       border: 1px solid $gray-700;
       border-radius: 4px;
       font-size: 16px;

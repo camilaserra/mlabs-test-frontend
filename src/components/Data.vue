@@ -8,7 +8,13 @@
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media screen and (max-width: 768px) {
+  .mx-datepicker {
+    width: 100%;
+  }
+}
+</style>
 
 <script>
 import "vue2-datepicker/index.css";

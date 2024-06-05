@@ -13,12 +13,13 @@
 
 <style lang="scss" scoped>
 .home-wrapper {
+  padding-top: 150px;
+  padding-bottom: 100px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  height: 100vh;
   background-color: $white-200;
 
   .home-image {
