@@ -103,7 +103,6 @@
           <div class="schedule-footer-buttons">
             <button class="button-white">Cancelar</button>
             <button class="button-blue-outlined">Salvar Rascunho</button>
-            <a href="#" @click.prevent="openModal"> {{ toISODateTime }}</a>
             <button
               :class="{
                 'button-blue': scheduleButtonRules,
@@ -574,9 +573,7 @@ export default {
 
               payload.id = lastId + 1;
               payload.media = this.uploadedImage;
-              payload.publication_date = new Date(
-                this.toISODateTime
-              ).toISOString();
+              payload.publication_date = this.toISODateTime;
               payload.social_network_key = this.enabledSocials;
               payload.status_key = 1;
               payload.text = this.textAreaValue;
@@ -597,7 +594,7 @@ export default {
 
         payload.id = lastId + 1;
         payload.media = this.uploadedImage;
-        payload.publication_date = new Date(this.toISODateTime).toISOString();
+        payload.publication_date = this.toISODateTime;
         payload.social_network_key = this.enabledSocials;
         payload.status_key = 1;
         payload.text = this.textAreaValue;
@@ -620,9 +617,12 @@ export default {
 
     toISODateTime() {
       if (this.selectedDate && this.timeReceived) {
-        const dateTimeString = `${this.selectedDate} ${this.timeReceived}`;
-        const dateTime = moment(dateTimeString, "YYYY-MM-DD HH:mm");
-        return dateTime.isValid() ? dateTime.toISOString() : null;
+        const hours = this.timeReceived.split(":");
+        const newDate = new Date(this.selectedDate);
+        newDate.setHours(hours[0]);
+        newDate.setMinutes(hours[1]);
+
+        return newDate;
       }
       return null;
     },

@@ -305,37 +305,9 @@ export default {
       required: true,
     },
   },
-  watch: {
-    "data.media": {
-      immediate: true,
-      handler(newVal, oldVal) {
-        if (newVal && newVal !== oldVal) {
-          this.convertBlobToBase64(newVal);
-        }
-      },
-    },
-  },
   methods: {
     close() {
       this.$emit("close", false);
-    },
-    async convertBlobToBase64(blobUrl) {
-      try {
-        const response = await fetch(blobUrl);
-        const blob = await response.blob();
-        const base64Image = await this.blobToBase64(blob);
-        this.imageSrc = base64Image;
-      } catch (error) {
-        console.error("Erro ao converter blob para base64:", error);
-      }
-    },
-    blobToBase64(blob) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-      });
     },
   },
   computed: {
