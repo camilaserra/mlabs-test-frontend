@@ -18,9 +18,14 @@
 Projeto desenvolvido, utilizando:
 
 - [Vue.js 2]([https://nodejs.org/en/](https://v2.vuejs.org/))
+  
 
 ## **:rocket: OBJETIVO**
 O objetivo deste projeto é desenvolver uma mini dashboard intuitiva e eficiente para o agendamento de publicações em redes sociais. A plataforma permitirá aos usuários gerenciar suas postagens de maneira organizada, selecionando a hora, data, imagem e texto personalizado, incluindo emojis. O sistema também contará com uma visualização em tabela, onde todos os agendamentos serão listados de forma clara e acessível. 
+
+Link para o projeto:
+
+- [mlabs test frontend]([https:vercel.com/camilaserras-projects/mlabs-test-frontend))
 
 
 ## **:wrench: Como configurar o ambiente?**
