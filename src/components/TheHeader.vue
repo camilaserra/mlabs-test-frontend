@@ -9,12 +9,6 @@
             class="header-logo"
           />
         </RouterLink>
-        <nav class="header-navbar">
-          <RouterLink to="/agendamento">Agendamento</RouterLink>
-          <RouterLink to="/lista-de-agendamentos"
-            >Lista de Agendamentos</RouterLink
-          >
-        </nav>
         <div class="profile-wrapper">
           <div class="profile-image">
             <img src="/img/fotos/profile.png" alt="Anselmo Carlos" />
