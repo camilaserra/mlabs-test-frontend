@@ -17,7 +17,7 @@
 
 Projeto desenvolvido, utilizando:
 
-- [Vue.js 2](https://nodejs.org/en/](https://v2.vuejs.org/)
+- [Vue.js 2](https://v2.vuejs.org/)
   
 
 ## **:rocket: OBJETIVO**
