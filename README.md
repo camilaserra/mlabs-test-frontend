@@ -1,7 +1,7 @@
 
 
 <p align="center">
-   # mlabs-teste-frontend
+   mlabs-teste-frontend
 </p>
 <p align="center">
   Gestão de Mídias Sociais
